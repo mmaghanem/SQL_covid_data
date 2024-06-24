@@ -16,7 +16,7 @@ ORDER BY 1,2;
 ```
 
 
-### Total Cases vs. Total Deaths
+#### Total Cases vs. Total Deaths
 The following SQL query compares total cases with total deaths and calculates the death percentage for each location. This helps understand the lethality of the virus in different states:
 ```
 SELECT Location, date, total_cases, total_deaths, round((total_deaths / total_cases)*100,2) as DeathPercentage
@@ -26,7 +26,7 @@ ORDER BY 1,2;
 ```
 
 
-### Average Death Percentage per Country
+#### Average Death Percentage per Country
 The following SQL query calculates the average death percentage for each country. This highlights the countries with higher fatality rates, which is crucial for understanding the impact of the virus across different regions:
 ```
 SELECT Location, round(AVG((total_deaths / total_cases)*100),2) as DeathPercentage
@@ -36,7 +36,7 @@ ORDER BY 2 DESC;
 ```
 
 
-### Total Cases vs. Population
+#### Total Cases vs. Population
 The following SQL query compares total cases with the population size and calculates the death percentage relative to the population. This assessment helps in understanding the virus's impact on different populations:
 ```
 SELECT Location, date, total_cases, population, round((total_deaths / population)*100,2) as DeathPopulationPercentage
@@ -46,7 +46,7 @@ ORDER BY 1,2;
 ```
 
 
-### Highest Infection Rate
+#### Highest Infection Rate
 The following SQL query identifies locations with the highest infection rates relative to their populations. This analysis pinpoints regions with the most severe outbreaks:
 ```
 SELECT Location, population, MAX(total_cases) HighestInfectionCount, ROUND(MAX(total_cases / population)*100,2) as PercentagePopulationInfected
@@ -56,7 +56,7 @@ ORDER BY 4 DESC;
 ```
 
 
-### Highest Death Count per Population
+#### Highest Death Count per Population
 The following SQL query identifies locations with the highest death counts. This analysis focuses on smaller regions or countries with significant death counts:
 ```
 SELECT Location, MAX(CAST(total_deaths AS SIGNED)) AS HighestDeathCount
@@ -67,7 +67,7 @@ ORDER BY 2 DESC;
 ```
 
 
-### Analysis by Continent
+#### Analysis by Continent
 The following SQL query aggregates the total deaths by continent. This provides a continental overview of Covid-19's impact:
 ```
 SELECT continent, MAX(CAST(total_deaths AS SIGNED)) AS HighestDeathCount
@@ -78,7 +78,7 @@ ORDER BY 2 DESC;
 ```
 
 
-### Global Numbers
+#### Global Numbers
 The following SQL query summarizes the global Covid-19 cases and deaths, providing a comprehensive view of the pandemic's global impact:
 ```
 SELECT date, SUM(new_cases) Total_Cases, SUM(CAST(new_deaths AS SIGNED)) Total_death, (SUM(CAST(new_deaths AS SIGNED))/SUM(new_cases))*100 AS DeathPercentage
