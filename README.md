@@ -7,7 +7,7 @@ Comprehensive SQL analysis on COVID-19 data, involving over a million records to
 ## Data Preparation
 The data for this project is sourced from comprehensive Covid-19 datasets, including metrics on cases, deaths, and vaccinations, as well as demographic and regional details. The datasets are processed and analyzed to generate key insights into the global and regional impacts of the pandemic.
 
-### Covid Deaths Overview
+#### Covid Deaths Overview
 The following SQL query explore basic Covid-19 statistics by location and date. It provides an overview of the spread and impact of Covid-19, including total cases, new cases, and total deaths:
 ```
 SELECT Location, date, total_cases, new_cases, total_deaths, population
